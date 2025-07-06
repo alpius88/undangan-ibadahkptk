@@ -32,7 +32,6 @@
       line-height: 1.6em;
     }
 
-    /* Countdown Box Style */
     .countdown-wrapper {
       display: flex;
       justify-content: center;
@@ -132,6 +131,7 @@
         width: 60px;
         padding: 15px 10px;
       }
+
       .countdown-box span {
         font-size: 1.3em;
       }
@@ -139,17 +139,26 @@
   </style>
 </head>
 <body>
+<div class="container">
 
+    <!-- Gambar Header -->
+    <div class="header-image">
+      <img src="https://raw.githubusercontent.com/alpius88/undangan-ibadahkptk/refs/heads/main/undangan.jpg" alt="Undangan Ibadah" style="width: 100%; border-radius: 12px; margin-bottom: 20px;" />
+    </div>
   <div class="container">
-    <h1>Undangan Ibadah</h1>
-    <h2>Shalom Saudara/i Terkasih</h2>
+    <h1>Undangan</h1>
+    <h2>Kebaktian Persekutuan Tubuh Kristus</h2>
+    <h2>"Kabar Mempelai"</h2>
+    <h2>Salam Persekutuan dalam Tuhan Yesus Kristus</h2>
     <p>
-      Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam Ibadah Bersama:
+      Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam Kebaktian Persekutuan Tubuh Kristus "Kabar Mempelai"<br>
+      yang akan dilaksanakan pada :
     </p>
     <p>
-      <strong>Hari/Tanggal:</strong> Selasa, 29 Juli 2025<br>
-      <strong>Waktu:</strong> Pukul 09.00 WITA<br>
-      <strong>Tempat:</strong> Gereja GKST Ebenhaezer, Tentena
+      <strong>Hari/Tanggal:</strong> Selasa, 29-30 Juli 2025<br>
+      
+      <strong>Tempat:</strong> Gedung Banua Mpogombo, Tentena<br>
+      <strong>Pembicara:</strong> Pdt. Widjaja Hendra, Malang - Jatim<br>
     </p>
 
     <!-- Countdown Box -->
@@ -174,7 +183,7 @@
 
     <!-- Tombol Share WA -->
     <div class="share-buttons">
-      <a href="https://api.whatsapp.com/send?text=Shalom! Yuk hadir di Ibadah tanggal 29 Juli 2025, pukul 09.00 WITA di GKST Ebenhaezer Tentena! Info selengkapnya: [URL_UNDANGAN]" target="_blank">
+      <a href="https://api.whatsapp.com/send?text=Doakan dan Hadirilah Kebaktian Persekutuan Tubuh Kristus tanggal 29-30 Juli 2025, di Gedung Banua Mpogombo, Tentena!" target="_blank">
         Bagikan via WhatsApp
       </a>
     </div>
@@ -186,9 +195,9 @@
     </div>
 
     <h2>Konfirmasi Kehadiran</h2>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form onsubmit="kirimWhatsApp(event)">
       <label for="nama">Nama Lengkap</label>
-      <input type="text" id="nama" name="nama" required placeholder="Contoh: Ivan Legontu">
+      <input type="text" id="nama" name="nama" required placeholder="Contoh: Bapak, Ibu">
 
       <label for="jumlah">Jumlah Orang</label>
       <input type="number" id="jumlah" name="jumlah" min="1" required placeholder="Contoh: 2">
@@ -238,6 +247,28 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // Script kirim WA
+    function kirimWhatsApp(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const jumlah = document.getElementById("jumlah").value;
+      const hadir = document.getElementById("hadir").value;
+      const pesan = document.getElementById("pesan").value;
+
+      const nomorWA = "6282349929299";
+      const teks = 
+`*Konfirmasi Kehadiran Ibadah KPTK*
+Nama: ${nama}
+Jumlah Orang: ${jumlah}
+Kehadiran: ${hadir}
+Pesan: ${pesan}`;
+
+      const encoded = encodeURIComponent(teks);
+      const url = `https://wa.me/${nomorWA}?text=${encoded}`;
+      window.open(url, '_blank');
+    }
   </script>
 
 </body>
