@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Ibadah</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.ibb.co/tXtx6Lr/bg-ibadah.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      max-width: 95%;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ffe082;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1em;
+      line-height: 1.6em;
+    }
+
+    /* Countdown Box Style */
+    .countdown-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px auto;
+      flex-wrap: wrap;
+    }
+
+    .countdown-box {
+      background: white;
+      padding: 20px 15px;
+      border-radius: 8px;
+      width: 70px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .countdown-box span {
+      font-size: 1.5em;
+      font-weight: bold;
+      display: block;
+      color: black;
+    }
+
+    .countdown-box .detik {
+      color: red;
+    }
+
+    .label {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: none;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1.1em;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.85em;
+      color: #ccc;
+    }
+
+    .share-buttons {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .share-buttons a {
+      display: inline-block;
+      background-color: #25d366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .countdown-box {
+        width: 60px;
+        padding: 15px 10px;
+      }
+      .countdown-box span {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Undangan Ibadah</h1>
+    <h2>Shalom Saudara/i Terkasih</h2>
+    <p>
+      Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam Ibadah Bersama:
+    </p>
+    <p>
+      <strong>Hari/Tanggal:</strong> Selasa, 29 Juli 2025<br>
+      <strong>Waktu:</strong> Pukul 09.00 WITA<br>
+      <strong>Tempat:</strong> Gereja GKST Ebenhaezer, Tentena
+    </p>
+
+    <!-- Countdown Box -->
+    <div class="countdown-wrapper">
+      <div class="countdown-box">
+        <span id="days">00</span>
+        <div class="label">Hari</div>
+      </div>
+      <div class="countdown-box">
+        <span id="hours">00</span>
+        <div class="label">Jam</div>
+      </div>
+      <div class="countdown-box">
+        <span id="minutes">00</span>
+        <div class="label">Menit</div>
+      </div>
+      <div class="countdown-box">
+        <span id="seconds" class="detik">00</span>
+        <div class="label">Detik</div>
+      </div>
+    </div>
+
+    <!-- Tombol Share WA -->
+    <div class="share-buttons">
+      <a href="https://api.whatsapp.com/send?text=Shalom! Yuk hadir di Ibadah tanggal 29 Juli 2025, pukul 09.00 WITA di GKST Ebenhaezer Tentena! Info selengkapnya: [URL_UNDANGAN]" target="_blank">
+        Bagikan via WhatsApp
+      </a>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-code">
+      <p>Scan QR Code untuk buka undangan ini:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=[URL_UNDANGAN]" alt="QR Code">
+    </div>
+
+    <h2>Konfirmasi Kehadiran</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" required placeholder="Contoh: Ivan Legontu">
+
+      <label for="jumlah">Jumlah Orang</label>
+      <input type="number" id="jumlah" name="jumlah" min="1" required placeholder="Contoh: 2">
+
+      <label for="hadir">Kehadiran</label>
+      <select id="hadir" name="hadir" required>
+        <option value="">-- Pilih --</option>
+        <option value="Ya">Ya</option>
+        <option value="Tidak">Tidak</option>
+        <option value="Belum Pasti">Belum Pasti</option>
+      </select>
+
+      <label for="pesan">Pesan (opsional)</label>
+      <textarea id="pesan" name="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
+
+      <button type="submit">Kirim Konfirmasi</button>
+    </form>
+
+    <div class="footer">
+      <p>Terima kasih atas konfirmasi Anda.<br>Tuhan Yesus memberkati! Haleluya. Amin.</p>
+    </div>
+  </div>
+
+  <!-- Script Countdown -->
+  <script>
+    const targetDate = new Date("2025-07-29T09:00:00+08:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.querySelector('.countdown-wrapper').innerHTML = "<p>Ibadah sedang berlangsung atau telah selesai.</p>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(2, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
