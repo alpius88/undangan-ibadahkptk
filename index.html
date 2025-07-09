@@ -136,141 +136,145 @@
         font-size: 1.3em;
       }
     }
+
+    /* Tombol WA Bot */
+    .chatbox-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border: none;
+      border-radius: 50%;
+      padding: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: background-color 0.3s;
+    }
+
+    .chatbox-button:hover {
+      background-color: #128c7e;
+    }
+
+    .chatbox-button svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
   </style>
 </head>
 <body>
 <div class="container">
 
-    <!-- Gambar Header -->
-    <div class="header-image">
-      <img src="https://raw.githubusercontent.com/alpius88/undangan-ibadahkptk/refs/heads/main/undangan.jpg" alt="Undangan Ibadah" style="width: 100%; border-radius: 12px; margin-bottom: 20px;" />
-    </div>
-  <div class="container">
-    <h1>Undangan</h1>
-    <h2>Kebaktian Persekutuan Tubuh Kristus</h2>
-    <h2>"Kabar Mempelai"</h2>
-    <h2>Salam Persekutuan dalam Tuhan Yesus Kristus</h2>
-    <p>
-      Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam Kebaktian Persekutuan Tubuh Kristus "Kabar Mempelai"<br>
-      yang akan dilaksanakan pada :
-    </p>
-    <p>
-      <strong>Hari/Tanggal:</strong> Selasa-Rabu 29,30 Juli 2025<br>
-      
-      <strong>Tempat:</strong> Gedung Banua Mpogombo, Tentena<br>
-      <strong>Pembicara:</strong> Pdt. Widjaja Hendra, Malang - Jatim<br>
-    </p>
-
-    <!-- Countdown Box -->
-    <div class="countdown-wrapper">
-      <div class="countdown-box">
-        <span id="days">00</span>
-        <div class="label">Hari</div>
-      </div>
-      <div class="countdown-box">
-        <span id="hours">00</span>
-        <div class="label">Jam</div>
-      </div>
-      <div class="countdown-box">
-        <span id="minutes">00</span>
-        <div class="label">Menit</div>
-      </div>
-      <div class="countdown-box">
-        <span id="seconds" class="detik">00</span>
-        <div class="label">Detik</div>
-      </div>
-    </div>
-
-    <!-- Tombol Share WA -->
-    <div class="share-buttons">
-      <a href="https://api.whatsapp.com/send?text=Doakan dan Hadirilah Kebaktian Persekutuan Tubuh Kristus tanggal 29-30 Juli 2025 di Gedung Banua Mpogombo, Tentena! Buka undangan: https://bit.ly/kptk2025" target="_blank">
-  Bagikan via WhatsApp
-      </a>
-
-    </div>
-
-    <!-- QR Code -->
-    <div class="qr-code">
-      <p>Scan QR Code untuk buka undangan ini:</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.canva.com/design/DAGn5VjR1Wo/fs7lRabpQd3GhdLyrvCLDw/view?utm_content=DAGn5VjR1Wo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h74d42d3a84" alt="QR Code">
-    </div>
-
-    <h2>Konfirmasi Kehadiran</h2>
-    <form onsubmit="kirimWhatsApp(event)">
-      <label for="nama">Nama Lengkap</label>
-      <input type="text" id="nama" name="nama" required placeholder="Contoh: Bapak, Ibu">
-
-      <label for="jumlah">Jumlah Orang</label>
-      <input type="number" id="jumlah" name="jumlah" min="1" required placeholder="Contoh: 2">
-
-      <label for="hadir">Kehadiran</label>
-      <select id="hadir" name="hadir" required>
-        <option value="">-- Pilih --</option>
-        <option value="Ya">Ya</option>
-        <option value="Tidak">Tidak</option>
-        <option value="Belum Pasti">Belum Pasti</option>
-      </select>
-
-      <label for="pesan">Pesan (opsional)</label>
-      <textarea id="pesan" name="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
-
-      <button type="submit">Kirim Konfirmasi</button>
-    </form>
-
-    <div class="footer">
-      <p>Terima kasih atas konfirmasi Anda.<br>Tuhan Yesus memberkati! Haleluya. Amin.</p>
-    </div>
+  <!-- Gambar Header -->
+  <div class="header-image">
+    <img src="https://raw.githubusercontent.com/alpius88/undangan-ibadahkptk/refs/heads/main/undangan.jpg" alt="Undangan Ibadah" style="width: 100%; border-radius: 12px; margin-bottom: 20px;" />
   </div>
 
-  <!-- Script Countdown -->
-  <script>
-    const targetDate = new Date("2025-07-29T09:00:00+08:00").getTime();
+  <h1>Undangan</h1>
+  <h2>Kebaktian Persekutuan Tubuh Kristus</h2>
+  <h2>"Kabar Mempelai"</h2>
+  <h2>Salam Persekutuan dalam Tuhan Yesus Kristus</h2>
+  <p>
+    Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam Kebaktian Persekutuan Tubuh Kristus "Kabar Mempelai"<br>
+    yang akan dilaksanakan pada :
+  </p>
+  <p>
+    <strong>Hari/Tanggal:</strong> Selasa-Rabu 29,30 Juli 2025<br>
+    <strong>Tempat:</strong> Gedung Banua Mpogombo, Tentena<br>
+    <strong>Pembicara:</strong> Pdt. Widjaja Hendra, Malang - Jatim<br>
+  </p>
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+  <!-- Countdown -->
+  <div class="countdown-wrapper">
+    <div class="countdown-box"><span id="days">00</span><div class="label">Hari</div></div>
+    <div class="countdown-box"><span id="hours">00</span><div class="label">Jam</div></div>
+    <div class="countdown-box"><span id="minutes">00</span><div class="label">Menit</div></div>
+    <div class="countdown-box"><span id="seconds" class="detik">00</span><div class="label">Detik</div></div>
+  </div>
 
-      if (distance < 0) {
-        document.querySelector('.countdown-wrapper').innerHTML = "<p>Ibadah sedang berlangsung atau telah selesai.</p>";
-        return;
-      }
+  <!-- Share WA -->
+  <div class="share-buttons">
+    <a href="https://api.whatsapp.com/send?text=Doakan dan Hadirilah Kebaktian Persekutuan Tubuh Kristus tanggal 29-30 Juli 2025 di Gedung Banua Mpogombo, Tentena! Buka undangan: https://bit.ly/kptk2025" target="_blank">
+      Bagikan via WhatsApp
+    </a>
+  </div>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  <!-- QR Code -->
+  <div class="qr-code">
+    <p>Scan QR Code untuk buka undangan ini:</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bit.ly/kptk2025" alt="QR Code">
+  </div>
 
-      document.getElementById("days").textContent = String(days).padStart(2, '0');
-      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+  <h2>Konfirmasi Kehadiran</h2>
+  <form onsubmit="kirimWhatsApp(event)">
+    <label for="nama">Nama Lengkap</label>
+    <input type="text" id="nama" required placeholder="Contoh: Bapak, Ibu">
+
+    <label for="jumlah">Jumlah Orang</label>
+    <input type="number" id="jumlah" min="1" required placeholder="Contoh: 2">
+
+    <label for="hadir">Kehadiran</label>
+    <select id="hadir" required>
+      <option value="">-- Pilih --</option>
+      <option value="Ya">Ya</option>
+      <option value="Tidak">Tidak</option>
+      <option value="Belum Pasti">Belum Pasti</option>
+    </select>
+
+    <label for="pesan">Pesan (opsional)</label>
+    <textarea id="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
+
+    <button type="submit">Kirim Konfirmasi</button>
+  </form>
+
+  <div class="footer">
+    <p>Terima kasih atas konfirmasi Anda.<br>Tuhan Yesus memberkati! Haleluya. Amin.</p>
+  </div>
+</div>
+
+<!-- Tombol WA Bot -->
+<a href="https://api.whatsapp.com/send?text=Doakan dan Hadirilah Kebaktian Persekutuan Tubuh Kristus tanggal 29-30 Juli 2025 di Gedung Banua Mpogombo, Tentena! Buka undangan: https://bit.ly/kptk2025" target="_blank" 
+   class="chatbox-button" title="Butuh bantuan? Chat WA Bot" target="_blank" aria-label="Chat WA Bot">
+  <svg viewBox="0 0 32 32">
+    <path d="M16 .396C7.166.396 0 7.563 0 16.396c0 2.891.757 5.689 2.188 8.164L.021 31.604l7.241-2.138A15.892 15.892 0 0016 31.604c8.834 0 16-7.167 16-16.002S24.834.396 16 .396zm0 29.396a13.892 13.892 0 01-7.072-1.938l-.51-.302-4.297 1.27 1.375-4.164-.334-.542A13.888 13.888 0 012.002 16.396c0-7.719 6.281-14 14-14s14 6.281 14 14-6.281 14-14 14zm7.562-10.458c-.417-.209-2.479-1.228-2.861-1.365-.384-.135-.666-.208-.948.208-.281.417-1.084 1.365-1.328 1.645-.24.281-.49.313-.906.104-.417-.209-1.75-.646-3.334-2.062-1.233-1.104-2.062-2.469-2.303-2.885-.24-.417-.026-.646.182-.854.188-.188.417-.49.626-.73.208-.24.281-.417.417-.698.135-.281.073-.521-.031-.73-.104-.208-.948-2.292-1.301-3.146-.344-.833-.698-.719-.948-.73l-.802-.01c-.24 0-.625.094-.948.438-.323.344-1.24 1.209-1.24 2.938s1.271 3.406 1.448 3.646c.177.24 2.479 3.781 6.005 5.292.84.365 1.495.583 2.006.745.842.27 1.606.23 2.209.14.673-.101 2.479-1.01 2.833-1.984.354-.974.354-1.813.25-1.984-.104-.177-.385-.281-.802-.49z"/>
+  </svg>
+</a>
+
+<!-- Countdown Script -->
+<script>
+  const targetDate = new Date("2025-07-29T09:00:00+08:00").getTime();
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance < 0) {
+      document.querySelector('.countdown-wrapper').innerHTML = "<p>Ibadah sedang berlangsung atau telah selesai.</p>";
+      return;
     }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").textContent = String(days).padStart(2, '0');
+    document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // Script kirim WA
-    function kirimWhatsApp(event) {
-      event.preventDefault();
-
-      const nama = document.getElementById("nama").value;
-      const jumlah = document.getElementById("jumlah").value;
-      const hadir = document.getElementById("hadir").value;
-      const pesan = document.getElementById("pesan").value;
-
-      const nomorWA = "6281341254258";
-      const teks = 
-`*Konfirmasi Kehadiran Ibadah KPTK*
-Nama: ${nama}
-Jumlah Orang: ${jumlah}
-Kehadiran: ${hadir}
-Pesan: ${pesan}`;
-
-      const encoded = encodeURIComponent(teks);
-      const url = `https://wa.me/${nomorWA}?text=${encoded}`;
-      window.open(url, '_blank');
-    }
-  </script>
-
+  function kirimWhatsApp(event) {
+    event.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const jumlah = document.getElementById("jumlah").value;
+    const hadir = document.getElementById("hadir").value;
+    const pesan = document.getElementById("pesan").value;
+    const nomorWA = "6281341254258";
+    const teks = `*Konfirmasi Kehadiran Ibadah KPTK*\nNama: ${nama}\nJumlah Orang: ${jumlah}\nKehadiran: ${hadir}\nPesan: ${pesan}`;
+    const encoded = encodeURIComponent(teks);
+    const url = `https://wa.me/${nomorWA}?text=${encoded}`;
+    window.open(url, '_blank');
+  }
+</script>
 </body>
 </html>
