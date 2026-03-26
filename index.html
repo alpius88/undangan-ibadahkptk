@@ -306,7 +306,47 @@ function bukaUndangan() {
       <option value="Tidak">Tidak</option>
       <option value="Belum Pasti">Belum Pasti</option>
     </select>
+<label>Status (Pdt/Pdm/Pdp/Pengerja/Jemaat)</label>
+  <input type="text" id="status" required>
 
+  <label>No WA</label>
+  <input type="text" id="nowa" required>
+
+  <label>Gereja</label>
+  <input type="text" id="gereja" required>
+
+  <label>Alamat</label>
+  <textarea id="alamat" required></textarea>
+
+  <label>Istri ikut?</label>
+  <select id="istri" required>
+    <option value="">-- Pilih --</option>
+    <option value="Ya">Ya</option>
+    <option value="Tidak">Tidak</option>
+  </select>
+
+  <label>Akomodasi</label>
+  <select id="akomodasi" required>
+    <option value="">-- Pilih --</option>
+    <option value="Ikut Panitia">Ikut Panitia</option>
+    <option value="Urus Sendiri">Urus Sendiri</option>
+  </select>
+
+  <label>Konsumsi</label>
+  <select id="konsumsi" required>
+    <option value="">-- Pilih --</option>
+    <option value="Ikut Panitia">Ikut Panitia</option>
+    <option value="Urus Sendiri">Urus Sendiri</option>
+  </select>
+
+  <label>Datang Tanggal</label>
+  <input type="date" id="datang" required>
+
+  <label>Pulang Tanggal</label>
+  <input type="date" id="pulang" required>
+
+  <label>Jam</label>
+  <input type="time" id="jam" required>
     <label for="pesan">Pesan (opsional)</label>
     <textarea id="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
 
@@ -369,6 +409,16 @@ updateCountdown();
     const nama = document.getElementById("nama").value;
     const jumlah = document.getElementById("jumlah").value;
     const hadir = document.getElementById("hadir").value;
+    const status = document.getElementById("status").value;
+    const nowa = document.getElementById("nowa").value;
+    const gereja = document.getElementById("gereja").value;
+    const alamat = document.getElementById("alamat").value;
+    const istri = document.getElementById("istri").value;
+    const akomodasi = document.getElementById("akomodasi").value;
+    const konsumsi = document.getElementById("konsumsi").value;
+    const datang = document.getElementById("datang").value;
+    const pulang = document.getElementById("pulang").value;
+    const jam = document.getElementById("jam").value;
     const pesan = document.getElementById("pesan").value;
     const nomorWA = "6281341254258";
     const teks = `*Konfirmasi Kehadiran Ibadah KPTK*\nNama: ${nama}\nJumlah Orang: ${jumlah}\nKehadiran: ${hadir}\nPesan: ${pesan}`;
