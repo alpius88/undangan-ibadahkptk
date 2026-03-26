@@ -341,11 +341,13 @@ function bukaUndangan() {
 
   <label>Datang Tanggal</label>
   <input type="date" id="datang" required>
+  <label>Jam Datang</label>
+  <input type="time" id="jam" required>
 
   <label>Pulang Tanggal</label>
   <input type="date" id="pulang" required>
 
-  <label>Jam</label>
+  <label>Jam Pulang</label>
   <input type="time" id="jam" required>
     <label for="pesan">Pesan (opsional)</label>
     <textarea id="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
@@ -417,6 +419,7 @@ updateCountdown();
     const akomodasi = document.getElementById("akomodasi").value;
     const konsumsi = document.getElementById("konsumsi").value;
     const datang = document.getElementById("datang").value;
+    const jam = document.getElementById("jam").value;
     const pulang = document.getElementById("pulang").value;
     const jam = document.getElementById("jam").value;
     const pesan = document.getElementById("pesan").value;
