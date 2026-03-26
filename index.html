@@ -170,8 +170,9 @@
   <script>
   document.addEventListener("click", function () {
     const audio = document.getElementById("bgMusic");
+    audio.muted = false;
     audio.play();
-  });
+  }, { once: true });
 </script>
 
 <div class="container">
@@ -255,7 +256,7 @@
 
 <!-- Countdown Script -->
 <script>
-  const targetDate = new Date("2025-07-29T09:00:00+08:00").getTime();
+  const targetDate = new Date("2026-04-21T09:00:00+08:00").getTime();
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate - now;
