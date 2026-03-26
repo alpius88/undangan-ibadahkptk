@@ -342,13 +342,13 @@ function bukaUndangan() {
   <label>Datang Tanggal</label>
   <input type="date" id="datang" required>
   <label>Jam Datang</label>
-  <input type="time" id="jam" required>
+  <input type="time" id="jamDatang" required>
 
   <label>Pulang Tanggal</label>
   <input type="date" id="pulang" required>
 
   <label>Jam Pulang</label>
-  <input type="time" id="jam" required>
+  <input type="time" id="jamPulang" required>
     <label for="pesan">Pesan (opsional)</label>
     <textarea id="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
 
@@ -419,12 +419,30 @@ updateCountdown();
     const akomodasi = document.getElementById("akomodasi").value;
     const konsumsi = document.getElementById("konsumsi").value;
     const datang = document.getElementById("datang").value;
-    const jam = document.getElementById("jam").value;
+    const jam = document.getElementById("jamDatang").value;
     const pulang = document.getElementById("pulang").value;
-    const jam = document.getElementById("jam").value;
+    const jam = document.getElementById("jamPulang").value;
     const pesan = document.getElementById("pesan").value;
     const nomorWA = "6281341254258";
-    const teks = `*Konfirmasi Kehadiran Ibadah KPTK*\nNama: ${nama}\nJumlah Orang: ${jumlah}\nKehadiran: ${hadir}\nPesan: ${pesan}`;
+    const teks = `*Form Pendaftaran PTK untuk Hamba Tuhan*
+
+Nama : ${nama}
+Jumlah Orang : ${jumlah}
+Kehadiran : ${hadir}
+Status : ${status}
+No WA : ${nowa}
+Gereja : ${gereja}
+Alamat : ${alamat}
+Istri ikut : ${istri}
+
+Akomodasi : ${akomodasi}
+Konsumsi : ${konsumsi}
+
+Datang : ${datang} (${jamDatang})
+Pulang : ${pulang} (${jamPulang})
+
+Pesan : ${pesan}`;
+    
     const encoded = encodeURIComponent(teks);
     const url = `https://wa.me/${nomorWA}?text=${encoded}`;
     window.open(url, '_blank');
