@@ -164,16 +164,27 @@
   </style>
 </head>
 <body>
+  <script>
+function bukaUndangan() {
+  const overlay = document.getElementById("overlay");
+  const audio = document.getElementById("bgMusic");
+
+  overlay.style.opacity = "0";
+  setTimeout(() => {
+    overlay.style.display = "none";
+  }, 500);
+
+  audio.play().then(() => {
+    console.log("Audio jalan");
+  }).catch((err) => {
+    console.log("Audio gagal:", err);
+  });
+}
+</script>
  <audio autoplay loop muted id="bgMusic">
   <source src="https://drive.google.com/uc?export=download&id=150Atpp7DBq7QDMHB58U52F7k37U1f5Sz" type="audio/mpeg">
 </audio>
-  <script>
-  document.addEventListener("click", function () {
-    const audio = document.getElementById("bgMusic");
-    audio.muted = false;
-    audio.play();
-  }, { once: true });
-</script>
+  
 
 <div class="container">
 <div class="container">
