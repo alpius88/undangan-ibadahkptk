@@ -256,25 +256,40 @@
 
 <!-- Countdown Script -->
 <script>
-  const targetDate = new Date("2026-04-21T09:00:00+08:00").getTime();
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-    if (distance < 0) {
-      document.querySelector('.countdown-wrapper').innerHTML = "<p>Ibadah sedang berlangsung atau telah selesai.</p>";
-      return;
-    }
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("days").textContent = String(days).padStart(2, '0');
-    document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+const targetDate = new Date("2026-04-21T09:00:00+08:00").getTime();
+
+function animate(id, value) {
+  const el = document.getElementById(id);
+  if (el.textContent !== value) {
+    el.textContent = value;
+    el.classList.add("animate");
+    setTimeout(() => el.classList.remove("animate"), 300);
   }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+}
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if (distance <= 0) {
+    document.querySelector(".countdown-wrapper").innerHTML =
+      "<p>Ibadah sedang berlangsung atau telah selesai</p>";
+    return;
+  }
+
+  const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+  const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+  const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+  const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+
+  animate("days", days);
+  animate("hours", hours);
+  animate("minutes", minutes);
+  animate("seconds", seconds);
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
   function kirimWhatsApp(event) {
     event.preventDefault();
