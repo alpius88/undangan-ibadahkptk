@@ -275,13 +275,13 @@ function bukaUndangan() {
     <strong>Pembicara:</strong> Pdt. Widjaja Hendra, Malang - Jatim<br>
   </p>
 
-  <!-- Countdown -->
-  <div class="countdown-wrapper">
-    <div class="countdown-box"><span id="days">00</span><div class="label">Hari</div></div>
-    <div class="countdown-box"><span id="hours">00</span><div class="label">Jam</div></div>
-    <div class="countdown-box"><span id="minutes">00</span><div class="label">Menit</div></div>
-    <div class="countdown-box"><span id="seconds" class="detik">00</span><div class="label">Detik</div></div>
-  </div>
+  <!-- COUNTDOWN -->
+<div class="countdown-wrapper">
+<div class="countdown-box"><span id="days">00</span><div>Hari</div></div>
+<div class="countdown-box"><span id="hours">00</span><div>Jam</div></div>
+<div class="countdown-box"><span id="minutes">00</span><div>Menit</div></div>
+<div class="countdown-box"><span id="seconds" class="detik">00</span><div>Detik</div></div>
+</div>
 
   <!-- Share WA -->
   <div class="share-buttons">
@@ -403,9 +403,11 @@ function updateCountdown() {
   animate("seconds", seconds);
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
+document.addEventListener("DOMContentLoaded", function() {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
+  
   function kirimWhatsApp(event) {
     event.preventDefault();
     const nama = document.getElementById("nama").value;
@@ -419,9 +421,9 @@ updateCountdown();
     const akomodasi = document.getElementById("akomodasi").value;
     const konsumsi = document.getElementById("konsumsi").value;
     const datang = document.getElementById("datang").value;
-    const jam = document.getElementById("jamDatang").value;
+    const jamDatang = document.getElementById("jamDatang").value;
     const pulang = document.getElementById("pulang").value;
-    const jam = document.getElementById("jamPulang").value;
+    const jamPulang = document.getElementById("jamPulang").value;
     const pesan = document.getElementById("pesan").value;
     const nomorWA = "6281341254258";
     const teks = `*Form Pendaftaran PTK untuk Hamba Tuhan*
