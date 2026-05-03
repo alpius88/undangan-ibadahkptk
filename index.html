@@ -1,455 +1,158 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Ibadah</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://raw.githubusercontent.com/alpius88/undangan-ibadahkptk/refs/heads/main/WhatsApp%20Image%202026-03-26%20at%2006.25.24.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-
-    .container {
-      background-color: rgba(0, 0, 0, 0.75);
-      max-width: 95%;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #ffe082;
-    }
-
-    p {
-      text-align: center;
-      font-size: 1em;
-      line-height: 1.6em;
-    }
-
-    .countdown-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 30px auto;
-      flex-wrap: wrap;
-    }
-
-    .countdown-box {
-      background: white;
-      padding: 20px 15px;
-      border-radius: 8px;
-      width: 70px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .countdown-box span {
-      font-size: 1.5em;
-      font-weight: bold;
-      display: block;
-      color: black;
-    }
-
-    .countdown-box .detik {
-      color: red;
-    }
-
-    .label {
-      margin-top: 5px;
-      font-size: 0.9em;
-      color: #333;
-    }
-
-    form {
-      margin-top: 20px;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 0.9em;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      font-size: 1em;
-      border-radius: 6px;
-      border: none;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 12px;
-      font-size: 1.1em;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 25px;
-      font-size: 0.85em;
-      color: #ccc;
-    }
-
-    .share-buttons {
-      margin: 30px 0;
-      text-align: center;
-    }
-
-    .share-buttons a {
-      display: inline-block;
-      background-color: #25d366;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    .qr-code {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    @media (max-width: 600px) {
-      .countdown-box {
-        width: 60px;
-        padding: 15px 10px;
-      }
-
-      .countdown-box span {
-        font-size: 1.3em;
-      }
-    }
-
-    /* Tombol WA Bot */
-    .chatbox-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      border: none;
-      border-radius: 50%;
-      padding: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      transition: background-color 0.3s;
-    }
-
-    .chatbox-button:hover {
-      background-color: #128c7e;
-    }
-
-    .chatbox-button svg {
-      width: 24px;
-      height: 24px;
-      fill: #fff;
-    }
-  </style>
-</head>
-<body>
-<!-- OVERLAY PEMBUKA -->
-<div id="overlay">
-  <div class="overlay-content">
-    <h1>Undangan KPTK 2026</h1>
-    <p>Kebaktian Persekutuan Tubuh Kristus</p>
-    <button onclick="bukaUndangan()">Buka Undangan</button>
-  </div>
-</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cek Kelulusan SMKS GKST</title>
 
 <style>
-/* Overlay */
-#overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #000000cc, #1a1a1aee);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeIn 1s ease;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #5aa6b1, #2c3e50);
+    color: white;
+    text-align: center;
 }
 
-.overlay-content {
-  text-align: center;
-  color: white;
-  animation: zoomIn 1s ease;
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
 }
 
-.overlay-content h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
 }
 
-.overlay-content button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(45deg, #ff9800, #ffc107);
-  color: black;
-  cursor: pointer;
-  transition: 0.3s;
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.overlay-content button:hover {
-  transform: scale(1.1);
+.countdown {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
-/* Animasi */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.box {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 8px;
+    width: 22%;
 }
 
-@keyframes zoomIn {
-  from {transform: scale(0.8); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+.box h2 {
+    margin: 0;
 }
 
-/* Animasi countdown */
-.animate {
-  transform: scale(1.3);
-  transition: 0.3s;
+input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #00bcd4;
+    color: white;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.footer {
+    color: yellow;
+    margin-top: 15px;
 }
 </style>
 
-<script>
-function bukaUndangan() {
-  const overlay = document.getElementById("overlay");
-  const audio = document.getElementById("bgMusic");
-
-  overlay.style.opacity = "0";
-  setTimeout(() => {
-    overlay.style.display = "none";
-  }, 500);
-
-  audio.muted = false;
-  audio.play();
-}
-</script>
- <audio id="bgMusic">
-  <source src="https://raw.githubusercontent.com/alpius88/undangan-ibadahkptk/refs/heads/main/kabarmempelai.mp3" type="audio/mpeg">
-</audio>
-  <script>
-  
-</script>
+</head>
+<body>
 
 <div class="container">
-<div class="container">
+    <!-- GANTI LOGO DI SINI -->
+    <img src="logo-smksgkst.png" class="logo">
 
-  <!-- Gambar Header -->
-  <div class="header-image">
-    <img src="https://raw.githubusercontent.com/alpius88/undangan-ibadahkptk/refs/heads/main/WhatsApp%20Image%202026-03-26%20at%2006.25.24%20(1).jpeg" alt="Undangan Ibadah" style="width: 100%; border-radius: 12px; margin-bottom: 20px;" />
-  </div>
+    <h1>Cek Kelulusan<br>SMKS GKST</h1>
 
-  <h1>Undangan</h1>
-  <h2>Kebaktian Persekutuan Tubuh Kristus</h2>
-  <h2>"Kabar Mempelai"</h2>
-  <h2>Salam Persekutuan dalam Tuhan Yesus Kristus</h2>
-  <p>
-    Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam Kebaktian Persekutuan Tubuh Kristus "Kabar Mempelai"<br>
-    yang akan dilaksanakan pada :
-  </p>
-  <p>
-    <strong>Hari/Tanggal:</strong> Selasa-Rabu 21,22 April 2026<br>
-    <strong>Tempat:</strong> Gedung Banua Mpogombo, Tentena<br>
-    <strong>Pembicara:</strong> Pdt. Widjaja Hendra, Malang - Jatim<br>
-  </p>
+    <p>Waktu Menuju Pengumuman:</p>
 
-  <!-- COUNTDOWN -->
-<div class="countdown-wrapper">
-<div class="countdown-box"><span id="days">00</span><div>Hari</div></div>
-<div class="countdown-box"><span id="hours">00</span><div>Jam</div></div>
-<div class="countdown-box"><span id="minutes">00</span><div>Menit</div></div>
-<div class="countdown-box"><span id="seconds" class="detik">00</span><div>Detik</div></div>
+    <div class="countdown">
+        <div class="box"><h2 id="hari">0</h2><small>Hari</small></div>
+        <div class="box"><h2 id="jam">0</h2><small>Jam</small></div>
+        <div class="box"><h2 id="menit">0</h2><small>Menit</small></div>
+        <div class="box"><h2 id="detik">0</h2><small>Detik</small></div>
+    </div>
+
+    <input type="text" id="inputData" placeholder="Masukkan NIK atau Nama">
+    <br>
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+
+    <div class="result" id="hasil"></div>
+
+    <div class="footer">
+        Pengumuman dibuka: 04-05-2026 15:00
+    </div>
 </div>
 
-  <!-- Share WA -->
-  <div class="share-buttons">
-    <a href="https://api.whatsapp.com/send?text=Doakan dan Hadirilah Kebaktian Persekutuan Tubuh Kristus tanggal 21-22 April 2026 di Gedung Banua Mpogombo, Tentena! Buka undangan: https://is.gd/NF57mE" target="_blank">
-      Bagikan via WhatsApp
-    </a>
-  </div>
-
-
-  <h2>Konfirmasi Kehadiran</h2>
-  <form onsubmit="kirimWhatsApp(event)">
-    <label for="nama">Nama Lengkap</label>
-    <input type="text" id="nama" required placeholder="Contoh: Bapak, Ibu">
-
-    <label for="jumlah">Jumlah Orang</label>
-    <input type="number" id="jumlah" min="1" required placeholder="Contoh: 2">
-
-    <label for="hadir">Kehadiran</label>
-    <select id="hadir" required>
-      <option value="">-- Pilih --</option>
-      <option value="Ya">Ya</option>
-      <option value="Tidak">Tidak</option>
-      <option value="Belum Pasti">Belum Pasti</option>
-    </select>
-<label>Status (Pdt/Pdm/Pdp/Pengerja/Jemaat)</label>
-  <input type="text" id="status" required>
-
-  <label>No WA</label>
-  <input type="text" id="nowa" required>
-
-  <label>Gereja</label>
-  <input type="text" id="gereja" required>
-
-  <label>Alamat</label>
-  <textarea id="alamat" required></textarea>
-
-  <label>Istri ikut?</label>
-  <select id="istri" required>
-    <option value="">-- Pilih --</option>
-    <option value="Ya">Ya</option>
-    <option value="Tidak">Tidak</option>
-  </select>
-
-  <label>Akomodasi</label>
-  <select id="akomodasi" required>
-    <option value="">-- Pilih --</option>
-    <option value="Ikut Panitia">Ikut Panitia</option>
-    <option value="Urus Sendiri">Urus Sendiri</option>
-  </select>
-
-  <label>Konsumsi</label>
-  <select id="konsumsi" required>
-    <option value="">-- Pilih --</option>
-    <option value="Ikut Panitia">Ikut Panitia</option>
-    <option value="Urus Sendiri">Urus Sendiri</option>
-  </select>
-
-  <label>Datang Tanggal</label>
-  <input type="date" id="datang" required>
-  <label>Jam Datang</label>
-  <input type="time" id="jamDatang" required>
-
-  <label>Pulang Tanggal</label>
-  <input type="date" id="pulang" required>
-
-  <label>Jam Pulang</label>
-  <input type="time" id="jamPulang" required>
-    <label for="pesan">Pesan (opsional)</label>
-    <textarea id="pesan" rows="3" placeholder="Tulis pesan singkat..."></textarea>
-
-    <button type="submit">Kirim Konfirmasi</button>
-  </form>
-
-  <div class="footer">
-    <p>Terima kasih atas konfirmasi Anda.<br>Tuhan Yesus memberkati! Haleluya. Amin.</p>
-  </div>
-</div>
-
-<!-- Tombol WA Bot -->
-<a href="https://api.whatsapp.com/send?text=Doakan dan Hadirilah Kebaktian Persekutuan Tubuh Kristus tanggal 21-22 April 2026 di Gedung Banua Mpogombo, Tentena! Buka undangan: https://is.gd/NF57mE" target="_blank" 
-   class="chatbox-button" title="Butuh bantuan? Chat WA Bot" target="_blank" aria-label="Chat WA Bot">
-  <svg viewBox="0 0 32 32">
-    <path d="M16 .396C7.166.396 0 7.563 0 16.396c0 2.891.757 5.689 2.188 8.164L.021 31.604l7.241-2.138A15.892 15.892 0 0016 31.604c8.834 0 16-7.167 16-16.002S24.834.396 16 .396zm0 29.396a13.892 13.892 0 01-7.072-1.938l-.51-.302-4.297 1.27 1.375-4.164-.334-.542A13.888 13.888 0 012.002 16.396c0-7.719 6.281-14 14-14s14 6.281 14 14-6.281 14-14 14zm7.562-10.458c-.417-.209-2.479-1.228-2.861-1.365-.384-.135-.666-.208-.948.208-.281.417-1.084 1.365-1.328 1.645-.24.281-.49.313-.906.104-.417-.209-1.75-.646-3.334-2.062-1.233-1.104-2.062-2.469-2.303-2.885-.24-.417-.026-.646.182-.854.188-.188.417-.49.626-.73.208-.24.281-.417.417-.698.135-.281.073-.521-.031-.73-.104-.208-.948-2.292-1.301-3.146-.344-.833-.698-.719-.948-.73l-.802-.01c-.24 0-.625.094-.948.438-.323.344-1.24 1.209-1.24 2.938s1.271 3.406 1.448 3.646c.177.24 2.479 3.781 6.005 5.292.84.365 1.495.583 2.006.745.842.27 1.606.23 2.209.14.673-.101 2.479-1.01 2.833-1.984.354-.974.354-1.813.25-1.984-.104-.177-.385-.281-.802-.49z"/>
-  </svg>
-</a>
-  
-
-<!-- Countdown Script -->
 <script>
-const targetDate = new Date("2026-04-21T09:00:00+08:00").getTime();
+// SET TANGGAL PENGUMUMAN
+const targetDate = new Date("May 4, 2026 15:00:00").getTime();
 
-function animate(id, value) {
-  const el = document.getElementById(id);
-  if (el.textContent !== value) {
-    el.textContent = value;
-    el.classList.add("animate");
-    setTimeout(() => el.classList.remove("animate"), 300);
-  }
+setInterval(() => {
+    const now = new Date().getTime();
+    const selisih = targetDate - now;
+
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+    const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+    document.getElementById("hari").innerText = hari;
+    document.getElementById("jam").innerText = jam;
+    document.getElementById("menit").innerText = menit;
+    document.getElementById("detik").innerText = detik;
+}, 1000);
+
+
+// DATA CONTOH SISWA (BISA DIGANTI DATABASE)
+const dataSiswa = [
+    { nik: "123456", nama: "ANDI", status: "LULUS" },
+    { nik: "654321", nama: "BUDI", status: "TIDAK LULUS" }
+];
+
+function cekKelulusan() {
+    const input = document.getElementById("inputData").value.toUpperCase();
+    const hasil = document.getElementById("hasil");
+
+    const sekarang = new Date().getTime();
+
+    if (sekarang < targetDate) {
+        hasil.innerHTML = "Pengumuman belum dibuka!";
+        return;
+    }
+
+    const siswa = dataSiswa.find(s => s.nik === input || s.nama === input);
+
+    if (siswa) {
+        hasil.innerHTML = "Status: " + siswa.status;
+    } else {
+        hasil.innerHTML = "Data tidak ditemukan!";
+    }
 }
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = targetDate - now;
-
-  if (distance <= 0) {
-    document.querySelector(".countdown-wrapper").innerHTML =
-      "<p>Ibadah sedang berlangsung atau telah selesai</p>";
-    return;
-  }
-
-  const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-  const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-  const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-  const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-
-  animate("days", days);
-  animate("hours", hours);
-  animate("minutes", minutes);
-  animate("seconds", seconds);
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-});
-  
-  function kirimWhatsApp(event) {
-    event.preventDefault();
-    const nama = document.getElementById("nama").value;
-    const jumlah = document.getElementById("jumlah").value;
-    const hadir = document.getElementById("hadir").value;
-    const status = document.getElementById("status").value;
-    const nowa = document.getElementById("nowa").value;
-    const gereja = document.getElementById("gereja").value;
-    const alamat = document.getElementById("alamat").value;
-    const istri = document.getElementById("istri").value;
-    const akomodasi = document.getElementById("akomodasi").value;
-    const konsumsi = document.getElementById("konsumsi").value;
-    const datang = document.getElementById("datang").value;
-    const jamDatang = document.getElementById("jamDatang").value;
-    const pulang = document.getElementById("pulang").value;
-    const jamPulang = document.getElementById("jamPulang").value;
-    const pesan = document.getElementById("pesan").value;
-    const nomorWA = "6281341254258";
-    const teks = `*Form Pendaftaran PTK*
-
-Nama : ${nama}
-Jumlah Orang : ${jumlah}
-Kehadiran : ${hadir}
-Status : ${status}
-No WA : ${nowa}
-Gereja : ${gereja}
-Alamat : ${alamat}
-Istri ikut : ${istri}
-
-Akomodasi : ${akomodasi}
-Konsumsi : ${konsumsi}
-
-Datang : ${datang} (${jamDatang})
-Pulang : ${pulang} (${jamPulang})
-
-Pesan : ${pesan}`;
-    
-    const encoded = encodeURIComponent(teks);
-    const url = `https://wa.me/${nomorWA}?text=${encoded}`;
-    window.open(url, '_blank');
-  }
-  
 </script>
+
 </body>
 </html>
