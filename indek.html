@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cek Kelulusan SMKS GKST</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #5aa6b1, #2c3e50);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.box {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 8px;
+    width: 22%;
+}
+
+.box h2 {
+    margin: 0;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #00bcd4;
+    color: white;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.footer {
+    color: yellow;
+    margin-top: 15px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <!-- GANTI LOGO DI SINI -->
+    <img src="logo-smksgkst.png" class="logo">
+
+    <h1>Cek Kelulusan<br>SMKS GKST</h1>
+
+    <p>Waktu Menuju Pengumuman:</p>
+
+    <div class="countdown">
+        <div class="box"><h2 id="hari">0</h2><small>Hari</small></div>
+        <div class="box"><h2 id="jam">0</h2><small>Jam</small></div>
+        <div class="box"><h2 id="menit">0</h2><small>Menit</small></div>
+        <div class="box"><h2 id="detik">0</h2><small>Detik</small></div>
+    </div>
+
+    <input type="text" id="inputData" placeholder="Masukkan NIK atau Nama">
+    <br>
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+
+    <div class="result" id="hasil"></div>
+
+    <div class="footer">
+        Pengumuman dibuka: 04-05-2026 15:00
+    </div>
+</div>
+
+<script>
+// SET TANGGAL PENGUMUMAN
+const targetDate = new Date("May 4, 2026 15:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const selisih = targetDate - now;
+
+    const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+    const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+    const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+    document.getElementById("hari").innerText = hari;
+    document.getElementById("jam").innerText = jam;
+    document.getElementById("menit").innerText = menit;
+    document.getElementById("detik").innerText = detik;
+}, 1000);
+
+
+// DATA CONTOH SISWA (BISA DIGANTI DATABASE)
+const dataSiswa = [
+    { nik: "123456", nama: "ANDI", status: "LULUS" },
+    { nik: "654321", nama: "BUDI", status: "TIDAK LULUS" }
+];
+
+function cekKelulusan() {
+    const input = document.getElementById("inputData").value.toUpperCase();
+    const hasil = document.getElementById("hasil");
+
+    const sekarang = new Date().getTime();
+
+    if (sekarang < targetDate) {
+        hasil.innerHTML = "Pengumuman belum dibuka!";
+        return;
+    }
+
+    const siswa = dataSiswa.find(s => s.nik === input || s.nama === input);
+
+    if (siswa) {
+        hasil.innerHTML = "Status: " + siswa.status;
+    } else {
+        hasil.innerHTML = "Data tidak ditemukan!";
+    }
+}
+</script>
+
+</body>
+</html>
